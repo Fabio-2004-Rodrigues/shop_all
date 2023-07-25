@@ -19,6 +19,7 @@ return new class extends Migration
             $table->text('description');
             $table->string('category');
             $table->integer('value');
+            $table->string('image');
         });
     }
 

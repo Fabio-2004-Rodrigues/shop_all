@@ -3,33 +3,21 @@
 @section('title', 'Inicio')
 
 @section('content')
-    <div id="carouselExample" class="carousel slide">
-        <div class="carousel-inner">
-            <div class="carousel-item active">
-                <img src="/assets/banner.jpg" class="d-block w-100" style="height: 200px" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="/assets/banner.jpg" class="d-block w-100" style="height: 200px" alt="...">
-            </div>
-            <div class="carousel-item">
-                <img src="/assets/banner.jpg" class="d-block w-100" style="height: 200px" alt="...">
-            </div>
-        </div>
-        <button class="carousel-control-prev" type="button" data-bs-target="#carouselExample" data-bs-slide="prev">
-            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Previous</span>
-        </button>
-        <button class="carousel-control-next" type="button" data-bs-target="#carouselExample" data-bs-slide="next">
-            <span class="carousel-control-next-icon" aria-hidden="true"></span>
-            <span class="visually-hidden">Next</span>
-        </button>
-    </div>
 
-    @foreach ($product as $data)
-        <div class="card rounded-circle" style="width: 18rem;">
-            <img src="/assets/banner.jpg" class="card-img-top rounded-circle" alt="...">
-            <p>{{ $data->name_product }}</p>
-        </div>
-    @endforeach
+    <div class="row my-5">
+        @foreach ($product as $data)
+            <div class="col-3">
+                <div class="card" style="width: 18rem;">
+                    <img src="/img/products/{{$data->image}}" class="card-img-top" alt="{{$data->name_product}}">
+                    <div class="card-body">
+                        <h5 class="card-title">{{ $data->name_product }}</h5>
+                        <p class="card-text">{{ $data->description }}</p>
+                        <p class="card-text">{{ $data->value }}</p>
+                        <a href="#" class="btn btn-primary">Comprar ja</a>
+                    </div>
+                </div>
+            </div>
+        @endforeach
+    </div>
 
 @endsection
